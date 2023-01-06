@@ -4,15 +4,17 @@
 
 In this repository, you will example and starter computer vision projects built using the Roboflow platform.
 
+Each example comes with a README explaining how to get started, and an accompanying tutorial.
+
 ## Examples and Accompanying Tutorials
 
 | Project | Learning Resources |
 | --- | --- |
-| [Narrate the Contents of a Room with Computer Vision]() | [![YouTube Button](https://camo.githubusercontent.com/31485b76bc4c4d1b73e0c55965675990d1ad50ee6b6729778ed17e7517a50538/68747470733a2f2f6261646765732e616c65656e34322e636f6d2f7372632f796f75747562652e737667)](https://youtube.com) |
-| [NCreate Dataset Versions and Train Models Using the Roboflow Python Package]() | [![YouTube button](https://camo.githubusercontent.com/31485b76bc4c4d1b73e0c55965675990d1ad50ee6b6729778ed17e7517a50538/68747470733a2f2f6261646765732e616c65656e34322e636f6d2f7372632f796f75747562652e737667)](https://youtube.com) [![Roboflow Blog](https://raw.githubusercontent.com/roboflow-ai/notebooks/main/assets/badges/roboflow-blogpost.svg)](https://blog.roboflow.com/launch-version-export-and-train-models-in-the-roboflow-python-package/)|
+| [Narrate the Contents of a Room with Computer Vision](./model-training-and-versioning-demo/) | [![YouTube Button](https://camo.githubusercontent.com/31485b76bc4c4d1b73e0c55965675990d1ad50ee6b6729778ed17e7517a50538/68747470733a2f2f6261646765732e616c65656e34322e636f6d2f7372632f796f75747562652e737667)](https://youtu.be/Zig8tKct2n0) |
+| [Create Dataset Versions and Train Models Using the Roboflow Python Package](./text-to-speech/) | [![YouTube button](https://camo.githubusercontent.com/31485b76bc4c4d1b73e0c55965675990d1ad50ee6b6729778ed17e7517a50538/68747470733a2f2f6261646765732e616c65656e34322e636f6d2f7372632f796f75747562652e737667)](https://www.youtube.com/watch?v=5jaaEOv_eN8) [![Roboflow Blog](https://raw.githubusercontent.com/roboflow-ai/notebooks/main/assets/badges/roboflow-blogpost.svg)](https://blog.roboflow.com/launch-version-export-and-train-models-in-the-roboflow-python-package/)|
 
 
-<h2 align="center">About roboflow</h2>
+<h2 align="center">About Roboflow</h2>
 
 <p align="center">Use the links below to learn more about Roboflow.</p>
 
