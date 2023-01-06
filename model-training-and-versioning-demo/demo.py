@@ -38,4 +38,4 @@ def apply_multiple_experiments(project: str) -> None:
         generate_and_train(project, configuration)
 
 for project in projects:
-    apply_multiple_experiments(projects)
+    apply_multiple_experiments(project)
