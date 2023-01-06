@@ -1,0 +1,15 @@
+{
+    "augmentation": {
+        "crop": {
+            "min": 12,
+            "max": 71
+        },
+        "rotate": {
+            "degrees": 45
+        }
+    },
+    "preprocessing": {
+        "auto-orient": true,
+        "greyscale": true
+    }
+}

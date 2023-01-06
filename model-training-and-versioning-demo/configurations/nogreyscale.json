@@ -1,0 +1,11 @@
+{
+    "augmentation": {
+        "crop": {
+            "min": 12,
+            "max": 71
+        }
+    },
+    "preprocessing": {
+        "auto-orient": true
+    }
+}
