@@ -52,7 +52,7 @@ def get_items_in_room(image: str) -> list:
 
     return labels
 
-def narrate_room(room_type, labels) -> None:
+def narrate_room(room_type: str, labels: list) -> None:
     """
     Speak out the type of room a photo was taken in and the objects in the room.
     """
