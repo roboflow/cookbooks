@@ -18,6 +18,7 @@ rf = Roboflow(api_key=os.environ["ROBOFLOW_API_KEY"])
 project = rf.workspace().project(ROBOFLOW_PROJECT)
 model = project.version(6).model
 
+
 def get_all_predictions() -> list:
     """
     Retrieve predictions for each image in a folder from a model hosted on Roboflow and save them to a list of dictionaries.
@@ -27,9 +28,10 @@ def get_all_predictions() -> list:
     all_predictions = []
 
     for i in range(len(all_images)):
-        predictions = model.predict(os.path.join(IMAGE_DIR, all_images[i]), confidence=70).json()
+        predictions = model.predict(
+            os.path.join(IMAGE_DIR, all_images[i]), confidence=70
+        ).json()
 
-        predictions["file_name"] = all_images[i]
         predictions["datetime"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         all_predictions.append(predictions)
@@ -47,7 +49,7 @@ def save_to_spreadsheet(all_predictions) -> None:
     # time.
     if os.path.exists("token.json"):
         creds = Credentials.from_authorized_user_file("token.json", SCOPES)
-        
+
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
@@ -66,7 +68,6 @@ def save_to_spreadsheet(all_predictions) -> None:
         sheet = service.spreadsheets()
 
         for p in all_predictions:
-            print("saving predictions for", p["file_name"])
             for bounding_box in p["predictions"]:
                 sheet.values().append(
                     spreadsheetId=SAMPLE_SPREADSHEET_ID,
@@ -81,7 +82,7 @@ def save_to_spreadsheet(all_predictions) -> None:
                                 bounding_box["y"],
                                 bounding_box["width"],
                                 bounding_box["height"],
-                                p["file_name"],
+                                bounding_box["image_path"],
                                 p["datetime"],
                             ]
                         ]
