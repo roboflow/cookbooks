@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Money Counter</title>
+        
+        <script src="https://cdn.roboflow.com/0.2.25/roboflow.js"></script>
+
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <main>
+            <h1>Money Counter</h1>
+            <p>Use a computer vision model to count US dollars using your webcam.</p>
+
+            <div class="side_by_side">
+                <div id="canvas"></div>
+                
+                <section class="controls space">
+                    <h2>Controls</h2>
+                    <label for="confidence">Confidence</label><br>
+                    <input type="range" min="0" max="1" step="0.01" value="0.5" id="confidence" oninput="changeConfidence(this.value)"><br><br>
+                    <label for="camera_input">Camera Input</label><br>
+                    <select id="camera_input"></select><br><br>
+                    <label for="image_url">Image URL</label><br>
+                    <input type="text" id="image_url" placeholder="https://example.com/image.jpg"><br>
+
+                    <h2>Predictions</h2>
+                    <pre id="predictions"></pre>
+                </section>
+            </div>
+
+            <script src="./script.js"></script>
+            <footer>
+                <p>Made with ❤️ by <a href="https://roboflow.com">Roboflow</a></p>
+            </footer>
+        </main>
+    </body>
+</html>
