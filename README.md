@@ -12,6 +12,8 @@ Each example comes with a README explaining how to get started, and an accompany
 
 | Project | Learning Resources |
 | --- | --- |
+| [How to Deploy a YOLOv8 Model Using Roboflow and Repl.it](./deploy-to-web/) | [![Roboflow Blog](https://raw.githubusercontent.com/roboflow-ai/notebooks/main/assets/badges/roboflow-blogpost.svg)](https://blog.roboflow.com/deploy-yolov8-models-to-replit/)|
+| [How to Save Computer Vision Predictions to a Google Sheet](./save-to-spreadsheet/) | [![Roboflow Blog](https://raw.githubusercontent.com/roboflow-ai/notebooks/main/assets/badges/roboflow-blogpost.svg)](https://blog.roboflow.com/save-computer-vision-predictions-google-sheets/)|
 | [Narrate the Contents of a Room with Computer Vision](./model-training-and-versioning-demo/) | [![YouTube Button](https://camo.githubusercontent.com/31485b76bc4c4d1b73e0c55965675990d1ad50ee6b6729778ed17e7517a50538/68747470733a2f2f6261646765732e616c65656e34322e636f6d2f7372632f796f75747562652e737667)](https://youtu.be/Zig8tKct2n0) |
 | [Create Dataset Versions and Train Models Using the Roboflow Python Package](./text-to-speech/) | [![YouTube button](https://camo.githubusercontent.com/31485b76bc4c4d1b73e0c55965675990d1ad50ee6b6729778ed17e7517a50538/68747470733a2f2f6261646765732e616c65656e34322e636f6d2f7372632f796f75747562652e737667)](https://www.youtube.com/watch?v=5jaaEOv_eN8) [![Roboflow Blog](https://raw.githubusercontent.com/roboflow-ai/notebooks/main/assets/badges/roboflow-blogpost.svg)](https://blog.roboflow.com/launch-version-export-and-train-models-in-the-roboflow-python-package/)|
 
