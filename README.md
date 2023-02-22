@@ -1,5 +1,3 @@
-# Roboflow Examples
-
 ![Roboflow Banner](https://media.roboflow.com/notebooks/template/roboflow-examples-banner-dark.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673027552530)
 
 ## Introduction
