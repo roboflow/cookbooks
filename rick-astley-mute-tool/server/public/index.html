@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rick Astley Blocker</title>
+
+    <meta name="viewport" content="width=640, user-scalable=no" />
+    <meta name="robots" content="noindex">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script src="https://cdn.roboflow.com/0.2.22/roboflow.js"></script>
+
+    <link rel="stylesheet" href="/main.css">
+    <script src="/main.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/c9c3956d39.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div id="logo"><a href="https://roboflow.com"><img src="https://app.roboflow.com/images/wordmark-white.svg"  style="height:20px;"/></a></div>
+        <div id="modelName"></div>
+        <div id="getCode" class="btn cyan hidden"><i class="fas fa-code"></i> Get Code</div>
+    </div>
+    <div id="content">
+        <div id="loading">
+            <div><img src="/images/infinity.svg"></div>
+            <div id="loadingText">Loading Model Info...</div>
+        </div>
+    </div>
+
+    <script id="promptCameraTemplate" type="text/x-handlebars-template">
+        <div id="prompt">
+            <div class="icon"
+                style="background-image:
+                    {{#if annotation}}url(https://storage.googleapis.com/roboflow-platform-sources/{{icon}}/annotation-{{annotation}}.png),{{/if}}
+                    url(https://storage.googleapis.com/roboflow-platform-sources/{{icon}}/thumb.jpg);"
+            ></div>
+            <div class="info">
+                <h2>Model</h2>
+                <h1>{{name}}</h1>
+                <p>Use your webcam to test this model directly in the browser.</p>
+                <div id="enableCamera" class="btn cyan">Turn on Camera</div>
+            </div>
+        </div>
+    </script>
+
+    <script id="displayModelTemplate" type="text/x-handlebars-template">
+        <div id="videoContainer">
+            <div id="fps"></div>
+            <div id="settings"><div class="btn cyan"><i class="fas fa-cog"></i></div></div>
+        </div>
+    </script>
+
+    <script id="videoDeniedTemplate" type="text/x-handlebars-template">
+        <div id="errorMessage">
+            <h2>Error<h2>
+            <h1>Unable to Access Camera</h1>
+            <p>
+                Once the camera setting has been denied it needs to be
+                accepted in your browser settings.
+            </p>
+            <p>
+                In Chrome, you can click the video icon with the "x"
+                on the righthand side of the URL bar.
+            </p>
+            <p>
+                Once enabled, reload this page.
+            </p>
+        </div>
+    </script>
+
+    <script id="settingsTemplate" type="text/x-handlebars-template">
+        <div id="settingsDialog">
+            <p>
+                To change the settings of your running model, edit them here.
+            </p>
+
+            <div class="setting">
+                <label for="confidence">Confidence Threshold</label>
+                <div class="inputContainer">
+                    <input type="range" id="confidence" name="confidence" min="0.01" max="1" step="0.01" value="{{confidence}}">
+                </div>
+            </div>
+
+            <div class="setting">
+                <label for="flip">Flip Camera</label>
+                <div class="inputContainer">
+                    <input type="checkbox" id="flip" name="flip" {{#if flip}}checked{{/if}}>
+                </div>
+            </div>
+
+            <div class="settingWide">
+                <label for="initCode">Initialization Code</label>
+                <div class="inputContainer">
+                    <textarea id="initCode" name="initCode">{{{initCode}}}</textarea>
+                </div>
+            </div>
+
+            <div class="settingWide">
+                <label for="inferCode">Inference Code</label>
+                <div class="inputContainer">
+                    <textarea id="inferCode" name="inferCode">{{{inferCode}}}</textarea>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <div id="preload"></div>
+</body>
+</html>

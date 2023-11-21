@@ -1,0 +1,310 @@
+html, body {
+    background-color: black;
+    color: white;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    overflow: hidden;
+}
+
+body video {
+    transition: filter 250ms linear;
+}
+
+body.loading video {
+    filter: grayscale(1) brightness(0.25);
+}
+
+html,
+html body {
+    min-width: auto;
+}
+
+html .crisp-client {
+    display: none;
+}
+
+html body {
+    background-size: cover,auto;
+    background-attachment: fixed,scroll;
+
+    background-position: 0 0,0 0;
+    opacity: 1;
+
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+
+    box-sizing: border-box;
+
+    background-color: #1f0655;
+    background-image: url(/images/flow.svg), linear-gradient(0deg, #7733f4, #1f0655 125%);
+}
+
+a {
+    color: white;
+}
+
+#header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 1.3em;
+    padding: 15px;
+    background-image: linear-gradient(0deg, #6706cd, #420088);
+    z-index: 100;
+}
+
+#header #modelName {
+    flex: 1;
+    font-size: 22px;
+    cursor: default;
+    text-align: center;
+}
+
+#header #logo img {
+    height: 24px;
+}
+
+/* body.loading:before {
+    content: "Loading Model...";
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 20px;
+    font-size: 3em;
+    font-weight: bold;
+    z-index: 100;
+} */
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#loading,
+#prompt,
+#errorMessage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#content {
+    text-shadow: 0 1px 3px black;
+}
+
+#prompt {
+    flex-direction: row;
+}
+
+#prompt .icon {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 10px;
+    box-shadow: -1px 5px 10px -7px black;
+}
+
+#prompt .info {
+    text-align: left;
+    padding: 0 25px;
+    font-size: 14px;
+}
+
+#prompt .info p {
+    max-width: 280px;
+    margin: 10px 0 18px;
+}
+
+#errorMessage > * {
+    width: 400px;
+    text-align: left;
+    max-width: 90%;
+}
+
+#errorMessage p {
+    font-size: 16px;
+}
+
+h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h1 {
+    font-size: 29px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.btn {
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    text-shadow: none;
+    transition: transform 150ms linear;
+}
+
+.btn.cyan {
+    color: #130024;
+    background-color: #00FFCE;
+}
+
+.btn.cyan:hover {
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+}
+
+#preload {
+    display: none;
+}
+
+video {
+    background-color: rgba(0,0,0,0.7);
+}
+
+video, canvas {
+    position: absolute;
+    top: 61px;
+    left: 0;
+    height: calc(100% - 61px);
+    width: 100%;
+}
+
+#fps {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+#fps:empty {
+    display: none;
+}
+
+#fps:after {
+    content: " fps";
+}
+
+#settings {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+#settingsDialog .setting {
+    max-width: 350px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#settingsDialog .setting,
+#settingsDialog .settingWide {
+    margin: 5px auto;
+}
+
+#settingsDialog .setting label {
+    width: 150px;
+    text-align: right;
+}
+
+#settingsDialog .setting input {
+    margin: 0 10px;
+}
+
+#settingsDialog .setting .inputContainer {
+    flex: 1;
+}
+
+#settingsDialog .settingWide .inputContainer {
+    flex: 1;
+}
+
+#settingsDialog .setting input[type=range] {
+    width: 100%;
+}
+
+#settingsDialog .settingWide textarea {
+    height: 200px;
+    width: 100%;
+}
+
+.flip {
+    transform: scaleX(-1);
+}
+
+.swal2-content {
+    text-align: left;
+    font-size: 12px;
+    padding: 0;
+}
+
+.swal2-content a {
+    color: #5c6ac4;
+}
+
+pre {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border: 1px solid var(--saf-0);
+    border-radius: 4px;
+    background: rgba(var(--sk_foreground_min,29,28,29),.04);
+    padding: 4px 6px;
+    position: relative;
+}
+
+code, pre {
+    --saf-0: rgba(var(--sk_foreground_low,29,28,29),0.13);
+    font-family: Monaco,Menlo,Consolas,Courier New,monospace!important;
+    font-size: 12px;
+    line-height: 1.50001;
+    font-variant-ligatures: none;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: normal;
+    -webkit-tab-size: 4;
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
+code {
+    padding: 2px 3px 1px;
+    border: 1px solid var(--saf-0);
+    border-radius: 3px;
+    background-color: rgba(var(--sk_foreground_min,29,28,29),.04);
+    color: #e01e5a;
+}
+
+.flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+}

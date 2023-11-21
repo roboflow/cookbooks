@@ -1,0 +1,66 @@
+html, body {
+    background-color: black;
+    color: white;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+body video {
+    transition: filter 250ms linear;
+}
+
+body.loading video {
+    filter: grayscale(1) brightness(0.25);
+}
+
+body.loading:before {
+    content: "Loading Model...";
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 20px;
+    font-size: 3em;
+    font-weight: bold;
+    z-index: 100;
+}
+
+html, body, video, canvas {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+video, canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+body:after {
+    content: "";
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 150px;
+    z-index: 1;
+    background-image: url("https://uploads-ssl.webflow.com/5eca8e43c4dfff837f0f6392/5ecad58e650fb5ec53e8b811_roboflow_assets_logo_white.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+
+#fps {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+#fps:empty {
+    display: none;
+}
+
+#fps:after {
+    content: " fps";
+}

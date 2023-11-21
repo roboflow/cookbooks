@@ -1,0 +1,35 @@
+{
+  "name": "synthetic-fruit-dataset",
+  "version": "1.0.0",
+  "description": "Code for Roboflow's How to Create a Synthetic Dataset tutorial.",
+  "main": "generate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roboflow-ai/synthetic-fruit-dataset.git"
+  },
+  "keywords": [
+    "computer",
+    "vision",
+    "datasets",
+    "synthetic",
+    "generate",
+    "image",
+    "processing"
+  ],
+  "author": "Brad Dwyer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roboflow-ai/synthetic-fruit-dataset/issues"
+  },
+  "homepage": "https://github.com/roboflow-ai/synthetic-fruit-dataset#readme",
+  "dependencies": {
+    "@roboflow/floodfill": "^2.1.4",
+    "async": "^3.2.2",
+    "canvas": "^2.6.1",
+    "handlebars": "^4.7.7",
+    "lodash": "^4.17.21"
+  }
+}

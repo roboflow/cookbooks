@@ -1,0 +1,13 @@
+{
+    "ROBOFLOW_API_KEY": "[API_KEY]",
+    "ROBOFLOW_MODEL": "package_detection-x2qlm/1",
+    "ROBOFLOW_SIZE": 416,
+
+    "simplegmail_config": {
+        "to": "[EMAIL_TO]",
+        "sender": "[EMAIL_FROM]",
+        "subject": "Alert! Stack of packages detected!",
+        "msg_html": "<h3>Hey [Name]], a stack of 3 packages was detected.</h3><br />This is potentially unsafe! Check out the attached image ASAP.",
+        "attachments": ["overlayed_image.jpg", "raw_image.jpg"]
+    }
+}
