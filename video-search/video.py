@@ -6,7 +6,7 @@ model = CLIPModel(api_key="4LoVtLxWAd8lePVDKN0w")
 
 job_id, signed_url, expire_time = model.predict_video(
     "titanic.mp4",
-    fps=3,
+    fps=1,
     prediction_type="batch-video",
 )
 

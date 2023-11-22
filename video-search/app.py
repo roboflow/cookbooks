@@ -7,7 +7,7 @@ from flask import Flask, render_template, request
 from sklearn.metrics.pairwise import cosine_similarity
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
-model, preprocess = clip.load("ViT-B/32", device=device)
+model, preprocess = clip.load("ViT-B/16", device=device)
 
 app = Flask(__name__)
 
@@ -18,47 +18,43 @@ with open("results.json", "r") as f:
 @app.route("/", methods=["GET", "POST"])
 def search():
     if request.args.get("q"):
-
         query = request.args.get("q")
 
+        print(clip.available_models())
+
         with torch.no_grad():
-            query_features = model.encode_text(clip.tokenize(query).to(device))
+            query_features = model.encode_text(clip.tokenize([query]).to(device))
 
-        similarities = []
+            similarities = {}
 
-        for video in video_vectors["clip"]:
-            video_features = torch.tensor(np.array(video).reshape(1, -1)).to(device)
-            similarity = cosine_similarity(query_features.cpu(), video_features.cpu())
-            similarities.append(similarity.item())
-
-        # return results as {idx: similarity}
-        similarities = dict(enumerate(similarities))
+            for offset, video in zip(video_vectors["time_offset"], video_vectors["clip"]):
+                similarity = cosine_similarity(query_features.cpu(), [video])
+                similarities[offset] = similarity[0][0]
 
         # remove values below threshold
-        similarities = {k: v for k, v in similarities.items() if v > 0.1}
+        similarities = {k: v for k, v in similarities.items() if v > 0.25}
 
-        # bundle so if there is a < 10 frame gap, it is considered the same video, else it is a new video
+        print(similarities)
+
+        # bundle so if there is a < 3 second gap between videos, they are grouped together
         bundles = []
 
-        for idx, similarity in similarities.items():
-            if bundles:
-                if idx - bundles[-1][-1] < 10:
-                    bundles[-1].append(idx)
-                else:
-                    bundles.append([idx])
+        for key in sorted(similarities.keys()):
+            if not bundles:
+                bundles.append([key])
             else:
-                bundles.append([idx])
+                if key - bundles[-1][-1] < 1:
+                    bundles[-1].append(key)
+                else:
+                    bundles.append([key])
 
-        # get first and last values in each bundle
+        # remove bundles with 1 frame
+        bundles = [bundle for bundle in bundles if len(bundle) > 1]
+
         first_last_bundle = []
 
         for bundle in bundles:
-            first_last_bundle.append([bundle[0], bundle[-1]])
-
-        # convert to timestamps
-        for bundle in first_last_bundle:
-            bundle[0] = bundle[0] / 5
-            bundle[1] = bundle[1] / 5
+            first_last_bundle.append([round(bundle[0], 1), round(bundle[-1], 1)])
 
         return render_template("index.html", results=first_last_bundle, query=query)
 
