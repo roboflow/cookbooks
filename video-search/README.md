@@ -34,6 +34,8 @@ This script will send your video to Roboflow and calculate CLIP vectors for ever
 
 Once your video has been processed, the script will save a `results.json` file containing the CLIP vectors for each frame.
 
+Copy your video into the `static` directory and update the `VIDEO_PATH` in `app.py` to point to your video. The video *must* be in the `static` directory for the web appliaction to serve the video.
+
 Next, run the `app.py` script to start the video search engine:
 
 ```

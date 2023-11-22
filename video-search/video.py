@@ -2,10 +2,12 @@ import json
 
 from roboflow import CLIPModel
 
-model = CLIPModel(api_key="4LoVtLxWAd8lePVDKN0w")
+VIDEO_PATH = "titanic.mp4"
+
+model = CLIPModel(api_key="API_KEY")
 
 job_id, signed_url, expire_time = model.predict_video(
-    "titanic.mp4",
+    VIDEO_PATH,
     fps=1,
     prediction_type="batch-video",
 )
