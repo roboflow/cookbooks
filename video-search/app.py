@@ -9,6 +9,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model, preprocess = clip.load("ViT-B/16", device=device)
 
+# the video must be in the static folder to be served
+VIDEO_PATH = "/static/titanic.mp4"
+
 app = Flask(__name__)
 
 with open("results.json", "r") as f:
@@ -19,8 +22,6 @@ with open("results.json", "r") as f:
 def search():
     if request.args.get("q"):
         query = request.args.get("q")
-
-        print(clip.available_models())
 
         with torch.no_grad():
             query_features = model.encode_text(clip.tokenize([query]).to(device))
@@ -56,10 +57,10 @@ def search():
         for bundle in bundles:
             first_last_bundle.append([round(bundle[0], 1), round(bundle[-1], 1)])
 
-        return render_template("index.html", results=first_last_bundle, query=query)
+        return render_template("index.html", results=first_last_bundle, query=query, VIDEO_PATH=VIDEO_PATH)
 
         # sort results
-    return render_template("index.html")
+    return render_template("index.html", VIDEO_PATH=VIDEO_PATH)
 
 
 if __name__ == "__main__":
