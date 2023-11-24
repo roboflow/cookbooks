@@ -1,0 +1,6 @@
+roboflow
+numpy
+torch
+flask
+scikit-learn
+git+https://github.com/openai/CLIP.git
