@@ -1,0 +1,6 @@
+roboflow:
+  api_key: YOUR_ROBOFLOW_APIKEY # enter your roboflow api key here
+  project_name: YOUR_PROJECT_NAME # enter your roboflow project name here
+  label_null: True
+s3:
+  bucket_name: S3_BUCKET_NAME # enter your s3 bucket name here
