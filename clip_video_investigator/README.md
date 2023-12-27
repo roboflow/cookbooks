@@ -42,7 +42,7 @@ Understanding the relationship between text and image embeddings can provide ins
 A `config.yaml` file is used to specify various settings for the application:
 
 ```yaml
-roboflow_api_key: zZehudVV984QOf28TYFB  # Roboflow API key
+roboflow_api_key: enter_roboflow_apikey_here # Roboflow API key
 video_path: ""  # Path to video file
 CLIP:
   - wall
