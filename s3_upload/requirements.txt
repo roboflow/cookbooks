@@ -1,0 +1,8 @@
+boto3
+pandas
+Pillow
+roboflow
+requests
+requests_toolbelt
+PyYAML
+logging
