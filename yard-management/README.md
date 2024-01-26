@@ -1,8 +1,6 @@
 # Yard Management with Computer Vision
 
-<video width="100%" controls>
-  <source src="https://media.roboflow.com/yard-example/container.mp4" type="video/mp4">
-</video>
+https://github.com/roboflow/cookbooks/assets/37276661/28702f8b-adf6-41f5-b27a-bce9d44e88c4
 
 You can use computer vision to identify shipping containers on intermodal containers and read container and chassis IDs.
 
