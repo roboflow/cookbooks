@@ -1,0 +1,7 @@
+tqdm
+numpy
+opencv-python
+Pillow
+inference
+python-doctr
+supervision
