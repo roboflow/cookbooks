@@ -1,0 +1,5 @@
+roboflow:
+  project_name: <your_project_name>
+  version: <your_model_version>
+  api_key: <your_roboflow_api_key>
+directory_monitor: <directory_to_monitor>
