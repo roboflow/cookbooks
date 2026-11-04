@@ -2,9 +2,9 @@ from PIL import Image
 import os
 from roboflow import Roboflow
 
-# Set your Roboflow Workspace API Key and Project Name here
+# Set your Roboflow Workspace API Key and Project ID (the slug in the project's URL) here
 WORKSPACE_API_KEY = "Your_API_Key_Here"
-PROJECT_NAME = "Your_Project_Name"
+PROJECT_ID = "Your_Project_ID"
 
 def convert_tiff_to_png(tiff_file_path, png_file_path=None):
     """
@@ -34,11 +34,13 @@ def upload_directory_to_roboflow(directory_path):
 
     :param directory_path: Path to the directory containing TIFF files.
     """
+    project = Roboflow(api_key=WORKSPACE_API_KEY).workspace().project(PROJECT_ID)
+
     for tiff_file in os.listdir(directory_path):
-        if tiff_file.lower().endswith('.tiff'):
+        if tiff_file.lower().endswith(('.tiff', '.tif')):
             tiff_file_path = os.path.join(directory_path, tiff_file)
             png_file_path = convert_tiff_to_png(tiff_file_path)
-            upload_image_to_roboflow(png_file_path)
+            project.upload(image_path=png_file_path)
 
 def main(directory_path):
     """
